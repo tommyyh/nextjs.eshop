@@ -2,6 +2,8 @@ import { options } from '@/app/(auth)/api/auth/[...nextauth]/options';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import React from 'react';
+import Logout from './Logout';
+import Login from './Login';
 
 const Navbar = async () => {
   const session = await getServerSession(options);
@@ -21,9 +23,7 @@ const Navbar = async () => {
 
         {session ? (
           <>
-            <li>
-              <Link href={'/api/auth/signout?callbackUrl=/'}>Logout</Link>
-            </li>
+            <Logout />
             <li>
               <Link href={'/profile'}>Profile</Link>
             </li>
@@ -33,9 +33,7 @@ const Navbar = async () => {
             <li>
               <Link href={'/register'}>Register</Link>
             </li>
-            <li>
-              <Link href={'/api/auth/signin'}>Login</Link>
-            </li>
+            <Login />
           </>
         )}
       </ul>
