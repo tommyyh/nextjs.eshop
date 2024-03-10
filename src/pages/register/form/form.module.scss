@@ -1,0 +1,14 @@
+.error {
+  input, button {
+    color: #ff4d4d;
+    border: 2px solid #ff4d4d;
+    
+    &::placeholder {
+      color: #ff4d4d;
+    }
+  }
+}
+
+.errorMessage {
+  color: #ff4d4d;
+}
