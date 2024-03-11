@@ -3,7 +3,6 @@ import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import React from 'react';
 import Logout from './Logout';
-import Login from './Login';
 
 const Navbar = async () => {
   const session = await getServerSession(options);
@@ -33,7 +32,9 @@ const Navbar = async () => {
             <li>
               <Link href={'/register'}>Register</Link>
             </li>
-            <Login />
+            <li>
+              <Link href={'/login'}>Login</Link>
+            </li>
           </>
         )}
       </ul>
