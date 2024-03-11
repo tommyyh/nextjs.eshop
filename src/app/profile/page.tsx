@@ -1,13 +1,20 @@
-'use client';
-import { useSession } from 'next-auth/react';
-import React from 'react';
+"use client";
+import { useSession } from "next-auth/react";
+import React, { useEffect, useState } from "react";
 
 const Profile = () => {
-  const {
-    data: { user },
-  } = useSession();
+  const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
+  const { data } = useSession();
 
-  console.log(user);
+  useEffect(() => {
+    if (data?.user) {
+      setUser(data?.user);
+      setLoading(false);
+    }
+  }, [data]);
+
+  if (loading) return <h1>Loading...</h1>;
 
   return (
     <main>
